@@ -4,30 +4,60 @@
     {
         static void Main(string[] args)
         {
-            for (int j = 0; j < 20; j++)
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            int sizeHorizontal = 13;
+            int sizeVertical = 13;
+
+            int cellHorizontal = 4;
+            int cellVertical = 2;
+
+            for (int j = 0; j < sizeVertical; j++)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < sizeHorizontal; i++)
                 {
-                    if (j % 4 < 2)
+                    if ((i + j) % 2 == 1)
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGreen;
-                        Console.Write("    ");
-                        Console.BackgroundColor = ConsoleColor.Gray;
-                        Console.Write("    ");
                     }
                     else
                     {
                         Console.BackgroundColor = ConsoleColor.Gray;
-                        Console.Write("    ");
-                        Console.BackgroundColor = ConsoleColor.DarkGreen;
-                        Console.Write("    ");
                     }
-                    
+
+                    for (int left = 0; left < cellHorizontal; left++)
+                    {
+                        for (int top = 0; top < cellVertical; top++)
+                        {
+                            Console.SetCursorPosition(
+                                i * cellHorizontal + left,
+                                j * cellVertical + top);
+                            Console.Write(" ");
+                        }
+                    }
                 }
                 Console.WriteLine();
             }
 
             Console.BackgroundColor = ConsoleColor.Black;
+
+            Console.WriteLine("╔╛╘╗    ╔══╗");
+            Console.WriteLine("╚══╝    ╚╕╒╝");
+            Console.WriteLine("");
+            Console.WriteLine("╔═╗_    _╔═╗");
+            Console.WriteLine("╚═╝‾    ‾╚═╝");
+            
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("▓▓▓▓");
+            Console.WriteLine("▓▓▓▓");
+            Console.WriteLine("▒▒▒▒");
+            Console.WriteLine("▒▒▒▒");
+            Console.WriteLine("░░░░");
+            Console.WriteLine("░░░░");
+            Console.WriteLine("////");
+            Console.WriteLine("////");
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
